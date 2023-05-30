@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
@@ -10,7 +9,6 @@ from langchain.callbacks import get_openai_callback
 
 
 def main():
-    load_dotenv()
     st.set_page_config(page_title="Eduardo's Learning Accelerator")
     st.header("Eduardo's PDF Guru 💬")
     
@@ -34,7 +32,8 @@ def main():
       chunks = text_splitter.split_text(text)
       
       # create embeddings
-      embeddings = OpenAIEmbeddings()
+      api_key = os.environ.get('OPENAI_API_KEY')
+      embeddings = OpenAIEmbeddings(api_key=api_key)
       knowledge_base = FAISS.from_texts(chunks, embeddings)
       
       # show user input
