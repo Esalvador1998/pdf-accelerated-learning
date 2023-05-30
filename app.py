@@ -11,7 +11,7 @@ from langchain.callbacks import get_openai_callback
 
 def main():
     st.set_page_config(page_title="Eduardo's Learning Accelerator")
-    st.header("Eduardo's PDF Guru 💬")
+    st.header("Eduardo's Language Processing App 🌐")
     
     # upload file
     pdf = st.file_uploader("Upload your PDF", type="pdf")
