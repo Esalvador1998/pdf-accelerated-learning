@@ -34,7 +34,7 @@ def main():
       
       # create embeddings
       api_key = os.environ.get('OPENAI_API_KEY')
-      embeddings = OpenAIEmbeddings(api_key=api_key)
+      embeddings = OpenAIEmbeddings()
       knowledge_base = FAISS.from_texts(chunks, embeddings)
       
       # show user input
